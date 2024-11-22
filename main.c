@@ -5,6 +5,8 @@
 #include <bsd/string.h>
 #include <stdlib.h>
 
+int	ft_atoi(char *str);
+
 void test_isalnum(char *str)
 {
     int i = 0;
@@ -93,6 +95,15 @@ void test_strncmp(char * str, char * str2, unsigned int n){
     printf("\n");
 }
 
+void test_strchr_and_strrchr(char * s, int c){
+        printf( "%s", strrchr(s, c));
+        printf("\n");
+        printf( "%s", ft_strrchr(s, c));
+        printf("\n");
+        printf( "%s", strchr(s, c));
+        printf("\n");
+        printf( "%s", ft_strchr(s, c));
+}
 
 int main(void)
 {
@@ -112,7 +123,6 @@ int main(void)
         test_strncmp("hello" , "world", 4);
         test_strncmp("hello" , "herld", 1);
         test_strncmp("hello" , "herld", 2);
-        
-        return (0);
-
+        test_strchr_and_strrchr("qwqwe", 'w');
+              return (0);
 }
