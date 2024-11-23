@@ -5,16 +5,13 @@
 #include <bsd/string.h>
 #include <stdlib.h>
 
-int	ft_atoi(char *str);
-
 void test_isalnum(char *str)
 {
     int i = 0;
     printf ("Test of isalnum()\n");
     printf ("%s\n", str);
     while(str[i] != '\0')
-    {
-        
+    {    
         printf( "ft_isalnum(%c) = %d\n",str[i], ft_isalnum(str[i]));
         printf( "isalnum(%c) = %d\n",str[i], isalnum(str[i]));
         printf("\n");
@@ -105,6 +102,12 @@ void test_strchr_and_strrchr(char * s, int c){
         printf( "%s", ft_strchr(s, c));
 }
 
+void test_atoi(const char * s){
+    printf( "ft_atoi(%s) = %d \n", s,  ft_atoi(s));
+    printf( "atoi(%s) = %d \n", s,  atoi(s));
+    printf("\n");
+}
+
 int main(void)
 {
         test_isalnum("1Abc /");
@@ -124,5 +127,19 @@ int main(void)
         test_strncmp("hello" , "herld", 1);
         test_strncmp("hello" , "herld", 2);
         test_strchr_and_strrchr("qwqwe", 'w');
-              return (0);
+      
+
+        test_atoi("+12345");
+        test_atoi("+-12345");
+        test_atoi("-12345");
+        test_atoi("+++++++++++12345");
+        test_atoi("=12345");
+        test_atoi("a12345");
+        test_atoi("!12345");
+        test_atoi("     -12345");
+        test_atoi("\t \t-12345");
+        test_atoi("1+2345");
+        test_atoi("+123--45");
+        test_atoi("+1234-5");
+        return (0);
 }
