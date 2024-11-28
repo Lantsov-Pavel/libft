@@ -107,6 +107,18 @@ void test_atoi(const char * s){
     printf( "atoi(%s) = %d \n", s,  atoi(s));
     printf("\n");
 }
+void test_memmove(void *dest, const void *src, size_t n)
+{
+    printf( "ft_memmove,(%p, %p, %zu) = %p \n", dest, src, n,  ft_memmove(dest, src, n));
+    printf( "memmove,(%p, %p, %zu) = %p \n", dest, src, n,  memmove(dest, src, n));
+    printf("\n");
+}
+void test_memcpy(void *dest, const void *src, size_t n)
+{
+    printf( "ft_memcpy,(%p, %p, %zu) = %p \n", dest, src, n,  ft_memcpy(dest, src, n));
+    printf( "memcpy,(%p, %p, %zu) = %p \n", dest, src, n,  memcpy(dest, src, n));
+    printf("\n");
+}
 
 int main(void)
 {
@@ -128,7 +140,6 @@ int main(void)
         test_strncmp("hello" , "herld", 2);
         test_strchr_and_strrchr("qwqwe", 'w');
       
-
         test_atoi("+12345");
         test_atoi("+-12345");
         test_atoi("-12345");
@@ -141,5 +152,11 @@ int main(void)
         test_atoi("1+2345");
         test_atoi("+123--45");
         test_atoi("+1234-5");
+        char dest1[50] = "Hello"; 
+        char src1[50] = "World";
+        char dest2[50] = "Hello"; 
+        char src2[50] = "World";
+        test_memmove(dest1, src1, 6);
+        test_memcpy(dest2, src2, 6);
         return (0);
 }

@@ -14,5 +14,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n);
 char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
 int	ft_atoi(const char *str);
+void *ft_memmove(void *dest, const void *src, size_t n);
+void *ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif
