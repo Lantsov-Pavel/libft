@@ -119,6 +119,11 @@ void test_memcpy(void *dest, const void *src, size_t n)
     printf( "memcpy,(%p, %p, %zu) = %p \n", dest, src, n,  memcpy(dest, src, n));
     printf("\n");
 }
+void test_memset(void *s, int c, size_t n){
+     printf( "ft_memset,(%p, %d, %zu) = %p \n", s, c, n,  ft_memset(s, c, n));
+     printf( "%s", s);
+     printf( "memset,(%p, %d, %zu) = %p \n", s, c, n,  memset(s, c, n));
+}
 
 int main(void)
 {
@@ -156,7 +161,11 @@ int main(void)
         char src1[50] = "World";
         char dest2[50] = "Hello"; 
         char src2[50] = "World";
+        char s[50] = "123456789";
+        
         test_memmove(dest1, src1, 6);
         test_memcpy(dest2, src2, 6);
+        test_memset(s, 48, 5);
+        
         return (0);
 }
