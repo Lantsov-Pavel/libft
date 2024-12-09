@@ -1,9 +1,8 @@
 #include <stddef.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-size_t	checkstart(char const *s1, char const *set)
+static size_t	checkstart(char const *s1, char const *set)
 {
 	size_t	index;
 	int		i;
@@ -25,7 +24,7 @@ size_t	checkstart(char const *s1, char const *set)
 	return (index);
 }
 
-size_t	checktail(const char *s1, char const *set, size_t s1_len)
+static size_t	checktail(const char *s1, char const *set, size_t s1_len)
 {
 	size_t	index;
 	int		i;

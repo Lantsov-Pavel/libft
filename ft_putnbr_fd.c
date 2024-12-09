@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-    write(fd, &n, 8);
+	write(fd, &n, 4);
 }

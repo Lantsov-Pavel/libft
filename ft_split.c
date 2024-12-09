@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-int	ft_wdcount(char const *s, char c)
+static int	ft_wdcount(char const *s, char c)
 {
 	int	words;
 	int	i;
@@ -21,7 +21,7 @@ int	ft_wdcount(char const *s, char c)
 	return (words);
 }
 
-char	**allocmem(char const *s, char c)
+static char	**allocmem(char const *s, char c)
 {
 	char	**result;
 	int		words;
@@ -33,7 +33,7 @@ char	**allocmem(char const *s, char c)
 	return (result);
 }
 
-void	ft_putsplwd(char **result, char const *s, char c)
+static void	ft_putsplwd(char **result, char const *s, char c)
 {
 	int	i;
 	int	j;
@@ -53,12 +53,13 @@ void	ft_putsplwd(char **result, char const *s, char c)
 				end = i;
 			else
 				end = i + 1;
-			result[j++] = ft_substr(s, start, end - start);
+			result[j] = ft_substr(s, start, end - start);
+			j++;
 			start = -1;
 		}
 		i++;
 	}
-	result[j] = '\0';
+	result[j] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
