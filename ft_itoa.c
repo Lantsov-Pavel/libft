@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-size_t	ft_intlen(int n)
+static size_t	ft_intlen(int n)
 {
 	size_t	len;
 
