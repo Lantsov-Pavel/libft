@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_strdup(const char *s)
 {
@@ -8,7 +7,7 @@ char	*ft_strdup(const char *s)
 
 	if (s == NULL)
 		return (NULL);
-	size = ft_strlen((char *)s) + 1;
+	size = ft_strlen(s) + 1;
 	str = (char *)malloc(size);
 	if (str == NULL)
 		return (NULL);

@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
@@ -8,8 +7,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	size_dest;
 	size_t	size_src;
 
-	size_dest = ft_strlen(dest);
-	size_src = ft_strlen((char *)src);
+	size_dest = ft_strlen((const char *)dest);
+	size_src = ft_strlen(src);
 	i = size_dest;
 	j = 0;
 	if (size <= size_dest)

@@ -1,5 +1,3 @@
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static size_t	checkstart(char const *s1, char const *set)
@@ -54,7 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	tail;
 	size_t	len;
 
-	s1_len = ft_strlen((char *)s1);
+	s1_len = ft_strlen(s1);
 	start = checkstart(s1, set);
 	tail = checktail(s1, set, s1_len);
 	len = tail - start;

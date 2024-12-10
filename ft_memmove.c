@@ -1,31 +1,32 @@
-#include <stddef.h>
-static void ft_moveforw(unsigned char	*d, const unsigned char	*s, size_t n)
-	{
-		size_t			i;
-		
-		i = 0;
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
+#include "libft.h"
 
-static void ft_moveback(unsigned char	*d, const unsigned char	*s, size_t n)
+static void	ft_moveforw(unsigned char *d, const unsigned char	*s, size_t n)
 {
-		while (n > 0)
-		{
-			n--;
-			d[n] = s[n];
-		}
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+}
+
+static void	ft_moveback(unsigned char	*d, const unsigned char	*s, size_t n)
+{
+	while (n > 0)
+	{
+		n--;
+		d[n] = s[n];
+	}
 }
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*d;
+	unsigned char		*d;
 	const unsigned char	*s;
 
-	if (!dest && !src)
+	if (!dest || !src)
 		return (NULL);
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
@@ -34,6 +35,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (d < s || d >= (s + n))
 		ft_moveforw(d, s, n);
 	else
-	 	ft_moveback(d, s, n);		
+		ft_moveback(d, s, n);
 	return (dest);
 }

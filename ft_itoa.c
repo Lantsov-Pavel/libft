@@ -15,12 +15,23 @@ static int	ft_intlen(int n)
 	return (len);
 }
 
+static char	*ft_addnums(char *str, int index, unsigned int num)
+{
+	while (num != 0)
+	{
+		str[index] = (num % 10) + '0';
+		num = num / 10;
+		index--;
+	}
+	return (str);
+}
+
 char	*ft_itoa(int n)
 {
-	int		i;
-	char	*result;
-	int		len;
-	unsigned int 	num;
+	unsigned int		num;
+	char				*result;
+	int					len;
+	int					i;
 
 	if (n < 0)
 		num = n * (-1);
@@ -39,11 +50,6 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		result[0] = '-';
 	i = len - 1;
-	while (num != 0)
-	{
-		result[i] = (num % 10) + '0';
-		num = num / 10;
-		i--;
-	}
+	result = ft_addnums(result, i, num);
 	return (result);
 }
