@@ -1,11 +1,8 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-static size_t	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
-	size_t	len;
+	int	len;
 
 	len = 1;
 	if (n < 0)
@@ -22,25 +19,30 @@ char	*ft_itoa(int n)
 {
 	int		i;
 	char	*result;
-	size_t	len;
+	int		len;
+	unsigned int 	num;
 
+	if (n < 0)
+		num = n * (-1);
+	else
+		num = n;
 	len = ft_intlen(n);
 	result = malloc(len + 1);
-	i = len - 1;
 	if (result == NULL)
 		return (NULL);
 	result[len] = '\0';
-	if (n == 0)
-		return ("0");
-	if (n < 0)
+	if (num == 0)
 	{
-		result[0] = '-';
-		n = n * (-1);
+		result[0] = '0';
+		return (result);
 	}
-	while (n != 0)
+	if (n < 0)
+		result[0] = '-';
+	i = len - 1;
+	while (num != 0)
 	{
-		result[i] = (n % 10) + '0';
-		n = n / 10;
+		result[i] = (num % 10) + '0';
+		num = num / 10;
 		i--;
 	}
 	return (result);

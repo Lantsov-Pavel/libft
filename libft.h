@@ -2,6 +2,7 @@
 #define LIBFT_H
 
 #include <stddef.h>
+#include <stdlib.h>
 // page 1
 // colimn 1
 int ft_isalpha(int c);
@@ -34,7 +35,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len);
 char *ft_strjoin(char const *s1, char const *s2);
 // page 3
 char *ft_strtrim(char const *s1, char const *set);
-
+char **ft_split(char const *s, char c);
 char *ft_itoa(int n);
 // page 4
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));

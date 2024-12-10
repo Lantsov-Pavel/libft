@@ -1,6 +1,3 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
 static int	ft_wdcount(char const *s, char c)
@@ -12,7 +9,7 @@ static int	ft_wdcount(char const *s, char c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c && (s[i - 1] == c || i == 0))
+		if ((s[i] != c) && (i == 0 || s[i - 1] == c))
 		{
 			words++;
 		}
@@ -27,7 +24,7 @@ static char	**allocmem(char const *s, char c)
 	int		words;
 
 	words = ft_wdcount(s, c);
-	result = (char **)malloc(words + 1);
+	result = (char **)calloc(words + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
 	return (result);

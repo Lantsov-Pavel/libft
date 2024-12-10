@@ -1,27 +1,20 @@
-#include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*result;
-	size_t	i;
 	size_t s_len;
-
-	s_len = ft_strlen((char *)s);
+	
 	if (!s)
 		return (NULL);
+	s_len = ft_strlen((char *)s);
 	if(start >= s_len)
-		return ft_strdup("");
+		return (char *)ft_calloc(1, sizeof(char));
+	if(len > s_len  - (size_t)start)
+		len = s_len - start;
 	result = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (i < len && s[start + i] != '\0')
-	{
-		result[i] = s[start + i];
-		i++;
-	}
-	result[i] = '\0';
+	ft_memcpy(result, s + start, len);
 	return (result);
 }
